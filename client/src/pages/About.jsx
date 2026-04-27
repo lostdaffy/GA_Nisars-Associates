@@ -1,6 +1,7 @@
 import React from "react";
 import GetInTouch from "../components/common/GetInTouch";
 import PageHero from "../components/common/PageHero";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const features = [
@@ -72,7 +73,7 @@ const About = () => {
 
           <div className="flex flex-col justify-center">
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-[#111111] shadow-sm">
-              <i className="ri-box-3-line text-[16px]"></i>
+              <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
               <span>About Us</span>
             </div>
 
@@ -100,18 +101,18 @@ const About = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 mt-8">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/80"
               >
-                Start Consultation
-              </a>
-              <a
-                href="/services"
+                <i className="ri-phone-fill mr-2"> </i> Start Consultation
+              </Link>
+              <Link
+                to="/services"
                 className="inline-flex items-center justify-center rounded-xl border border-black/15 px-6 py-3 text-sm font-semibold text-black transition hover:bg-black/5"
               >
-                View Services
-              </a>
+                <i className="ri-arrow-right-long-line mr-2"></i> View Services
+              </Link>
             </div>
           </div>
         </div>
@@ -137,7 +138,7 @@ const About = () => {
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
           <div className="flex flex-col justify-center order-2 lg:order-1">
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-[#111111] shadow-sm">
-              <i className="ri-star-smile-line text-[16px]"></i>
+              <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
               <span>Why Choose Us</span>
             </div>
 

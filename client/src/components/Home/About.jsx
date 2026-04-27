@@ -6,6 +6,7 @@ import {
   Users,
   PhoneCall,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -15,7 +16,7 @@ const About = () => {
           {/* Top Badge */}
           <div className="mb-6 flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-[#f5f5f5] px-4 py-2 text-[14px] font-medium text-[#111111]">
-              <Box className="h-4 w-4" />
+              <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
               About Us
             </span>
           </div>
@@ -116,23 +117,12 @@ const About = () => {
 
               {/* CTA */}
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <button className="inline-flex h-[56px] items-center justify-center rounded-[8px] bg-[#111111] px-8 text-[16px] font-semibold text-white transition hover:bg-black">
-                  More About Us
-                </button>
-
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f5f5f5]">
-                    <PhoneCall className="h-5 w-5 text-[#111111]" />
-                  </div>
-                  <div>
-                    <p className="text-[14px] font-semibold text-[#111111]">
-                      Get free Quote
-                    </p>
-                    <p className="text-[18px] font-semibold text-[#111111]">
-                      1800 891 9866
-                    </p>
-                  </div>
-                </div>
+                <Link
+                  to="/about"
+                  className="inline-flex h-[56px] items-center justify-center rounded-[8px] bg-[#111111] px-8 text-[16px] font-semibold text-white transition hover:bg-black"
+                >
+                  <i className="ri-arrow-right-long-fill mr-2"></i> More About Us
+                </Link>
               </div>
             </div>
           </div>

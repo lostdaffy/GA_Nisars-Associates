@@ -86,8 +86,8 @@ const Services = () => {
     <section className="w-full bg-[#0f0f10] py-16 text-white sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[13px] font-medium text-white/80">
-            <Box className="h-4 w-4" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/50 px-4 py-2 text-[13px] font-medium text-black">
+            <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
             Services
           </span>
         </div>
@@ -146,7 +146,6 @@ const Services = () => {
                           <span className="text-[15px] sm:text-[16px]">
                             {item}
                           </span>
-                          <ArrowUpRight className="h-4 w-4 text-white/40" />
                         </div>
                       ))}
                     </div>

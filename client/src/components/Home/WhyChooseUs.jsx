@@ -29,7 +29,7 @@ const WhyChooseUs = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 flex justify-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-neutral-100 px-4 py-2 text-[13px] font-medium text-neutral-700">
-            <Box className="h-4 w-4" />
+            <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
             Why Choose Us
           </span>
         </div>

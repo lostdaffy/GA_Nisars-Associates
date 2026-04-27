@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <>
@@ -20,9 +22,9 @@ const Hero = () => {
             </p>
 
             <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center">
-              <button className="inline-flex h-[50px] items-center justify-center rounded-[8px] bg-[#1c1c1c] px-10 text-[18px] font-semibold text-white transition hover:bg-black">
-                Expolre Services
-              </button>
+              <Link to="/services" className="inline-flex h-[50px] items-center justify-center rounded-[8px] bg-[#1c1c1c] px-10 text-[18px] font-semibold text-white transition hover:bg-black">
+                <i className="ri-arrow-right-long-fill mr-2"></i>Expolre Services
+              </Link>
             </div>
           </div>
 

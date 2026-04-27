@@ -15,8 +15,8 @@ const GetInTouch = () => {
             </div>
 
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 text-sm text-black/70">
-                <i className="ri-customer-service-2-line text-[15px]"></i>
+              <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-[#111111] shadow-sm">
+                <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
                 <span>Get in touch</span>
               </div>
 
@@ -88,7 +88,7 @@ const GetInTouch = () => {
                   type="submit"
                   className="inline-flex rounded-md bg-[#111111] px-7 py-3 text-sm font-medium text-white transition hover:bg-black/85"
                 >
-                  Send Message
+                  <i className="ri-arrow-right-long-line mr-2"></i> Send Message
                 </button>
               </form>
             </div>

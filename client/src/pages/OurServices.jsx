@@ -65,7 +65,7 @@ const OurServices = () => {
 
           <div className="flex flex-col justify-center">
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-[#111111] shadow-sm">
-              <i className="ri-box-3-line text-[16px]"></i>
+              <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
               <span>Our Services</span>
             </div>
 
@@ -92,12 +92,12 @@ const OurServices = () => {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/80"
               >
-                Start Consultation
-              </a>
+                <i className="ri-phone-fill mr-2"></i> Start Consultation
+              </Link>
             </div>
           </div>
         </div>
@@ -131,10 +131,10 @@ const OurServices = () => {
           </div>
 
           <div className="bg-[#1f1f1f] px-6 py-12 text-white sm:px-10 lg:px-14 lg:py-16 xl:px-16">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-md bg-white/8 px-3 py-1.5 text-sm text-white/90">
-              <i className="ri-box-3-line text-[15px]"></i>
-              <span>Benefit</span>
-            </div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/50 px-4 py-2 text-[13px] font-medium text-black">
+              <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
+              Benefit
+            </span>
 
             <h2 className="max-w-lg text-4xl font-semibold leading-[1.2] text-white sm:text-5xl lg:text-[58px]">
               Why Choose Our Services

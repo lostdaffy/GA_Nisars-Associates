@@ -3,7 +3,6 @@ import React from "react";
 const WhatsAppButton = () => {
   return (
     <>
-      {/* Custom CSS for animation */}
       <style>
         {`
           @keyframes zoomInOut {
@@ -21,13 +20,12 @@ const WhatsAppButton = () => {
       </style>
 
       <a
-        href="https://wa.me/"
+        href="https://wa.me/918194000564"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6
-                   transition duration-300 ease-in-out z-50 animate-zoomInOut"
+        className="fixed bottom-6 right-6 z-50 transition duration-300 ease-in-out animate-zoomInOut"
       >
-        <i className="ri-whatsapp-line text-2xl md:text-4xl text-white bg-[#111111] rounded-full p-2"></i>
+        <i className="ri-whatsapp-line rounded-full bg-[#111111] p-2 text-2xl text-white md:text-4xl"></i>
       </a>
     </>
   );
