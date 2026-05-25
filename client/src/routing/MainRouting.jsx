@@ -10,6 +10,7 @@ import PrivacyPolicy from "../pages/PrivacyPolicy";
 import TermsConditions from "../pages/TermsConditions";
 import RefundPolicy from "../pages/RefundPolicy";
 import CancellationPolicy from "../pages/CancellationPolicy";
+import ServiceDetail from "../pages/ServiceDetail";
 
 const MainRouting = () => {
   return (
@@ -22,6 +23,7 @@ const MainRouting = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<OurServices />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsConditions />} />

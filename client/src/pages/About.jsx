@@ -6,20 +6,12 @@ import { Link } from "react-router-dom";
 const About = () => {
   const features = [
     {
-      title: "Integrity & Ethics",
-      desc: "We work with honesty, transparency, and a strong sense of responsibility in every matter we handle.",
-    },
-    {
       title: "Client-Centric Approach",
       desc: "We listen carefully, understand your goals, and provide solutions tailored to your needs.",
     },
     {
       title: "Professional Excellence",
       desc: "Our team delivers accurate, practical, and high-quality legal and tax services with care.",
-    },
-    {
-      title: "Timely & Affordable Solutions",
-      desc: "We focus on fast execution, clear communication, and cost-effective support for every client.",
     },
   ];
 
@@ -57,16 +49,13 @@ const About = () => {
           <div className="relative">
             <div className="relative flex justify-center lg:justify-start">
               <div className="relative w-full max-w-[640px]">
-                <div className="overflow-hidden rounded-[30px] bg-white">
+                <div className="overflow-hidden bg-white">
                   <img
-                    src="/images/hero-img.jpg"
+                    src="/images/about-img.png"
                     alt="Business services team"
-                    className="h-[420px] w-full object-contain object-center sm:h-[500px] lg:h-[560px]"
+                    className="h-full w-full rounded-3xl "
                   />
                 </div>
-
-                <div className="absolute left-0 top-0 h-[56px] w-[34%] rounded-br-[30px] bg-white" />
-                <div className="absolute bottom-0 right-0 h-[56px] w-[34%] rounded-tl-[30px] bg-white" />
               </div>
             </div>
           </div>

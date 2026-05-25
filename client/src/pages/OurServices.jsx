@@ -2,26 +2,40 @@ import React from "react";
 import PageHero from "../components/common/PageHero";
 import { Link } from "react-router-dom";
 import GetInTouch from "../components/common/GetInTouch";
-import Services from "../components/Home/Services";
-
+import AllServices from "../components/Home/AllServices";
 const OurServices = () => {
   const features = [
     {
+      icon: "ri-government-line",
       title: "GST Services",
-      desc: "GST registration, return filing, compliance, and advisory support for businesses.",
+      desc: "Registration, return filing, notice handling, and end-to-end GST compliance for your business.",
+      tag: "Most Popular",
     },
     {
+      icon: "ri-file-text-line",
       title: "Income Tax",
-      desc: "Tax planning, filing, assessment support, and complete income tax solutions.",
+      desc: "ITR filing, tax planning, assessment responses, and saving strategies for individuals and businesses.",
+      tag: "Essential",
     },
     {
+      icon: "ri-building-2-line",
       title: "Company Registration",
-      desc: "Private limited, LLP, partnership, and startup registration services.",
+      desc: "Pvt Ltd, LLP, OPC, Partnership — complete incorporation with MCA filings and documentation.",
+      tag: "Startup Friendly",
     },
     {
+      icon: "ri-scales-3-line",
       title: "Legal Services",
-      desc: "Legal drafting, documentation, consultation, and dispute support.",
+      desc: "Contracts, notices, property registry, trademark, and litigation support by experienced professionals.",
+      tag: "Expert Backed",
     },
+  ];
+
+  const stats = [
+    { value: "500+", label: "Clients Served" },
+    { value: "8+", label: "Years Experience" },
+    { value: "98%", label: "Success Rate" },
+    { value: "15+", label: "Services Offered" },
   ];
 
   const benefits = [
@@ -44,66 +58,93 @@ const OurServices = () => {
         des="Trusted tax, legal, and compliance solutions."
       />
 
-      <section className="bg-white py-10 md:py-16 lg:py-20">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
-          <div className="relative">
-            <div className="relative flex justify-center lg:justify-start">
-              <div className="relative w-full max-w-[640px]">
-                <div className="overflow-hidden rounded-[30px] bg-white">
-                  <img
-                    src="/images/hero-img.jpg"
-                    alt="Business services team"
-                    className="h-[420px] w-full object-contain object-center sm:h-[500px] lg:h-[560px]"
-                  />
-                </div>
+      <section className="bg-white py-12 md:py-16 lg:py-20">
+        <style>{`
+      @keyframes fade-up {
+        from { opacity: 0; transform: translateY(18px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .s1-anim-1 { animation: fade-up 0.55s 0.05s ease both; }
+      .s1-anim-2 { animation: fade-up 0.55s 0.12s ease both; }
+      .s1-anim-3 { animation: fade-up 0.55s 0.20s ease both; }
+      .s1-anim-4 { animation: fade-up 0.55s 0.28s ease both; }
+    `}</style>
 
-                <div className="absolute left-0 top-0 h-[56px] w-[34%] rounded-br-[30px] bg-white" />
-                <div className="absolute bottom-0 right-0 h-[56px] w-[34%] rounded-tl-[30px] bg-white" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+            {/* ── Left: Image + Stats ── */}
+            <div className="s1-anim-1 hidden flex-col gap-6 lg:flex">
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src="/images/hero-img.jpg"
+                  alt="Professional business services team"
+                  className="h-[520px] w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+                {/* Stats grid bottom-right */}
+                <div className="absolute bottom-5 right-5 grid grid-cols-2 gap-2">
+                  {stats.map((s) => (
+                    <div
+                      key={s.label}
+                      className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-center backdrop-blur-md"
+                    >
+                      <p className="text-xl font-semibold leading-none text-white">
+                        {s.value}
+                      </p>
+                      <p className="mt-1 text-xs text-white/70">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-col justify-center">
-            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-[#111111] shadow-sm">
-              <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
-              <span>Our Services</span>
-            </div>
+            {/* ── Right: Content ── */}
+            <div className="flex flex-col justify-center">
+              {/* Label */}
+              <div className="s1-anim-1 mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-[#111] shadow-sm">
+                <img src="/images/brand-logo.png" className="h-5 w-5" alt="" />
+                Expert Services
+              </div>
 
-            <h2 className="mb-5 max-w-xl text-4xl font-semibold leading-tight text-black sm:text-5xl">
-              Our Services & Expertise
-            </h2>
+              {/* Heading */}
+              <h2 className="s1-anim-2 max-w-lg text-4xl font-semibold leading-[1.15] tracking-[-0.03em] text-black lg:text-5xl">
+                Everything Your Business
+                <span className="block text-black/30">Legally Needs</span>
+              </h2>
 
-            <p className="mb-8 max-w-2xl text-base leading-8 text-black/70 sm:text-lg">
-              Comprehensive legal, tax, and business support services tailored
-              to your needs.
-            </p>
+              {/* Subtext */}
+              <p className="s1-anim-3 mt-5 max-w-md text-base leading-relaxed text-black/55 sm:text-lg">
+                From day-one registration to annual compliance — we handle every
+                legal and tax requirement so you can focus on growing your
+                business.
+              </p>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {features.map((item) => (
-                <div key={item.title} className="border-t border-black/10 pt-5">
-                  <h3 className="mb-2 text-xl font-semibold text-black">
-                    {item.title}
-                  </h3>
-                  <p className="text-base leading-7 text-black/65">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+              {/* Feature List */}
+              <div className="s1-anim-4 mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+                {features.map((item) => (
+                  <div
+                    key={item.title}
+                    className="flex items-start gap-4 rounded-2xl border border-black/[0.07] p-4"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-black/[0.08] bg-[#f4f4f4]">
+                      <i className={`${item.icon} text-lg text-black/60`} />
+                    </div>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/80"
-              >
-                <i className="ri-phone-fill mr-2"></i> Start Consultation
-              </Link>
+                    <div>
+                      <p className="text-base font-semibold text-black">
+                        {item.title}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <Services />
+      <AllServices />
 
       <section className="bg-white py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">

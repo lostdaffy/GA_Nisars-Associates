@@ -1,163 +1,124 @@
-import { useState } from "react";
-import { ChevronDown, ArrowUpRight, Box } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+import servicesData from "../../data/servicesData";
 
-const serviceData = [
-  {
-    category: "Company Registration",
-    items: [
-      "Pvt Ltd",
-      "LLP",
-      "OPC",
-      "Partnership Firm",
-      "Micro Finance",
-      "Nidhi Co.",
-    ],
-  },
-  {
-    category: "GST & Compliance",
-    items: ["GST", "MSME", "Logo Design", "Website", "Unique Name"],
-  },
-  {
-    category: "Digital Sign",
-    items: ["Digital Signature", "All Class Registration"],
-  },
-  {
-    category: "Trademark & IP India",
-    items: [
-      "Trade Mark",
-      "Logo Registration",
-      "Copyright",
-      "Logo Artist / Work of Patent",
-    ],
-  },
-  {
-    category: "Labour & Licence",
-    items: [
-      "Shop and Establishment",
-      "ESI",
-      "EPFO",
-      "Labour Licence",
-      "GST",
-      "MSME",
-    ],
-  },
-  {
-    category: "Legal & Tax",
-    items: [
-      "Legal Metrology",
-      "Drug Licence",
-      "FSSAI",
-      "143",
-      "Mutation",
-      "Registry",
-      "Land",
-      "Commercial Land",
-      "Export etc.",
-    ],
-  },
-  {
-    category: "Security Agency",
-    items: [
-      "PSARA",
-      "Security Agency",
-      "Labour Licence",
-      "ESI",
-      "EPFO",
-      "etc.",
-    ],
-  },
-  {
-    category: "Design & Marketing",
-    items: [
-      "Graphic Design",
-      "Logo Design",
-      "Catalogue Design",
-      "Social Media",
-      "Promotional Video",
-      "Poster/Video Design",
-    ],
-  },
-];
+/* ─── Card ─────────────────────────────────────────────── */
+const ServiceCard = ({ service }) => (
+  <Link
+    to={`/services/${service.slug}`}
+    className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111113] text-left transition-all duration-300 hover:-translate-y-[3px] hover:border-white/[0.16]"
+  >
+    {/* Image */}
+    <div className="relative h-52 overflow-hidden">
+      <img
+        src={service.image}
+        alt={service.category}
+        className="h-full w-full object-cover brightness-[0.68] transition-transform duration-500 group-hover:scale-[1.05]"
+        loading="lazy"
+      />
+    </div>
 
-const Services = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+    {/* Body */}
+    <div className="flex flex-1 flex-col gap-2 px-5 py-5">
+      <h3 className="text-lg font-semibold leading-snug tracking-[-0.01em] text-white">
+        {service.category}
+      </h3>
+      <p className="line-clamp-2 text-sm leading-relaxed text-white/50">
+        {service.tagline}
+      </p>
 
-  return (
-    <section className="w-full bg-[#0f0f10] py-16 text-white sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/50 px-4 py-2 text-[13px] font-medium text-black">
-            <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
-            Services
-          </span>
+      {/* Footer */}
+      <div className="mt-auto flex items-center justify-between border-t border-white/[0.06] pt-4">
+        <span className="text-sm font-medium text-white/45 transition-colors duration-200 group-hover:text-white/75">
+          View details
+        </span>
+        <div className="flex h-7 w-7 items-center justify-center rounded-full border border-white/[0.09] bg-white/[0.05] transition-all duration-200 group-hover:border-white/[0.18] group-hover:bg-white/[0.11]">
+          <ArrowUpRight
+            size={14}
+            className="text-white/45 transition-colors duration-200 group-hover:text-white/70"
+          />
         </div>
+      </div>
+    </div>
+  </Link>
+);
 
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-[34px] font-semibold leading-[1.1] tracking-[-0.03em] sm:text-[46px] lg:text-[60px]">
-            Your Needs, Our Expertise
+/* ─── Main Page ─────────────────────────────────────────── */
+const Services = () => (
+  <section className="flex min-h-screen w-full flex-col justify-center bg-[#0a0a0b] py-16 text-white sm:py-20 lg:py-28">
+    <style>{`
+      @keyframes fade-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .hdr-anim  { animation: fade-up 0.6s ease both; }
+      .hdr-anim-2 { animation: fade-up 0.6s 0.1s ease both; }
+      .hdr-anim-3 { animation: fade-up 0.6s 0.18s ease both; }
+    `}</style>
+
+    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Label pill */}
+      <div className="hdr-anim mb-6 flex justify-center">
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-1.5 text-sm font-medium tracking-wide text-white/50">
+          <img
+            src="/images/brand-logo.png"
+            className="h-5 w-5 opacity-70"
+            alt=""
+          />
+          Our Services
+        </span>
+      </div>
+
+      {/* ── Header row: heading left, button right ── */}
+      <div className="hdr-anim-2 mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        {/* Left: heading + subtext */}
+        <div>
+          <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-5xl lg:text-[54px]">
+            Your Needs, <span className="text-white/30">Our Expertise</span>
           </h2>
-          <p className="mt-4 text-[16px] leading-[1.7] text-white/70 sm:text-[18px]">
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-white/40 sm:text-lg">
             Business registration, legal compliance, branding, and professional
-            services — all organized into clear categories for easy access.
+            services — tap any card to explore all details.
           </p>
         </div>
 
-        <div className="mt-12 space-y-3">
-          {serviceData.map((group, index) => {
-            const isOpen = openIndex === index;
-
-            return (
-              <div key={group.category} className="border-b border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left sm:py-6"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-[14px] font-medium text-white/40 sm:text-[16px]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[32px] lg:text-[40px]">
-                      {group.category}
-                    </h3>
-                  </div>
-
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/80 transition-transform duration-300">
-                    <ChevronDown
-                      className={`h-5 w-5 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </span>
-                </button>
-
-                <div
-                  className={`grid overflow-hidden transition-all duration-300 ${
-                    isOpen ? "grid-rows-[1fr] pb-6" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="min-h-0">
-                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                      {group.items.map((item) => (
-                        <div
-                          key={item}
-                          className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white/85"
-                        >
-                          <span className="text-[15px] sm:text-[16px]">
-                            {item}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        {/* Right: button — desktop only */}
+        <div className="hidden shrink-0 lg:flex">
+          <Link
+            to="/services"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.07] px-6 py-3 text-sm font-medium text-white/70 transition-all duration-200 hover:border-white/25 hover:bg-white/[0.12] hover:text-white"
+          >
+            View All Services
+            <ArrowUpRight
+              size={15}
+              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </Link>
         </div>
       </div>
-    </section>
-  );
-};
+
+      {/* Grid */}
+      <div className="hdr-anim-3 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {servicesData.slice(0, 4).map((svc) => (
+          <ServiceCard key={svc.slug} service={svc} />
+        ))}
+      </div>
+
+      {/* Mobile: button below cards */}
+      <div className="mt-8 flex justify-center lg:hidden">
+        <Link
+          to="/services"
+          className="group inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.05] px-6 py-3 text-base font-medium text-white/60 transition-all duration-200 hover:border-white/20 hover:bg-white/[0.09] hover:text-white/90"
+        >
+          View All Services
+          <ArrowUpRight
+            size={15}
+            className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </Link>
+      </div>
+    </div>
+  </section>
+);
 
 export default Services;
