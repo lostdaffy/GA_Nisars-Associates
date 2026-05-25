@@ -79,7 +79,6 @@ const About = () => (
     `}</style>
 
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
       {/* Badge */}
       <div className="ab-anim-1 mb-6 flex justify-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-[#f5f5f5] px-4 py-2 text-sm font-medium text-[#111]">
@@ -103,7 +102,6 @@ const About = () => (
 
       {/* Main Grid */}
       <div className="mt-16 grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
-
         {/* Left: Image + service tags */}
         <div className="ab-anim-3">
           {/* Image */}
@@ -117,19 +115,30 @@ const About = () => (
               {/* Overlay label */}
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between rounded-2xl border border-white/20 bg-white/80 px-5 py-4 backdrop-blur-md">
                 <div>
-                  <p className="text-lg font-semibold text-[#111]">One-Stop Business Hub</p>
-                  <p className="text-xs text-[#666] mt-0.5">Registration · Compliance · Legal · Growth</p>
+                  <p className="text-lg font-semibold text-[#111]">
+                    One-Stop Business Hub
+                  </p>
+                  <p className="text-xs text-[#666] mt-0.5">
+                    Registration · Compliance · Legal · Growth
+                  </p>
                 </div>
                 <div className="h-9 w-9 rounded-full bg-[#111] flex items-center justify-center shrink-0">
-                  <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                  <svg
+                    className="h-4 w-4 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    />
                   </svg>
                 </div>
               </div>
             </div>
-            {/* Corner cutouts */}
-            <div className="absolute left-0 top-0 h-12 w-[30%] rounded-br-3xl bg-white z-20" />
-            <div className="absolute bottom-0 right-0 h-12 w-[30%] rounded-tl-3xl bg-white z-20" />
           </div>
 
           {/* Service tags */}
@@ -171,7 +180,9 @@ const About = () => (
                 <h3 className="text-lg font-semibold text-[#111] mb-2">
                   {title}
                 </h3>
-                <p className="text-[0.925rem] leading-relaxed text-[#555]">{desc}</p>
+                <p className="text-[0.925rem] leading-relaxed text-[#555]">
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
@@ -179,8 +190,12 @@ const About = () => (
           {/* Trust line */}
           <div className="ab-anim-5 mt-8 rounded-2xl border border-black/[0.06] bg-[#f9f9fb] px-6 py-5">
             <p className="text-sm leading-relaxed text-[#444]">
-              <span className="font-semibold text-[#111]">Your business isn't a ticket in our queue.</span>
-              {" "}Whether you're registering your first startup or filing annual compliance for an established firm — we treat your work with the same urgency we'd give our own.
+              <span className="font-semibold text-[#111]">
+                Your business isn't a ticket in our queue.
+              </span>{" "}
+              Whether you're registering your first startup or filing annual
+              compliance for an established firm — we treat your work with the
+              same urgency we'd give our own.
             </p>
           </div>
 
