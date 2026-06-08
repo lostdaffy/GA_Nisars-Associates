@@ -25,7 +25,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#111111] text-white">
+    <footer style={{ background: "#071409" }} className="text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-6">
@@ -36,14 +36,14 @@ const Footer = () => {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="flex flex-col gap-5 border-b border-white/15 pb-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-5 border-b border-green-800/30 pb-6 sm:flex-row sm:items-center sm:justify-between">
               <input
                 type="email"
                 defaultValue="info@ganisarsandassociates.com"
                 className="w-full bg-transparent text-2xl font-semibold text-white outline-none placeholder:text-white/70 sm:text-3xl"
                 aria-label="Email address"
               />
-              <button className="flex items-center gap-2 text-lg font-medium text-white transition-colors hover:text-white/70">
+              <button className="flex items-center gap-2 text-lg font-medium text-green-400 transition-colors hover:text-green-300">
                 <span>Subscribe Now</span>
                 <i className="ri-send-plane-line text-xl"></i>
               </button>
@@ -61,7 +61,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     to={item.to}
-                    className="transition-colors hover:text-white/60"
+                    className="transition-colors hover:text-green-400"
                   >
                     {item.name}
                   </Link>
@@ -77,7 +77,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     to={item.to}
-                    className="transition-colors hover:text-white/60"
+                    className="transition-colors hover:text-green-400"
                   >
                     {item.name}
                   </Link>
@@ -92,7 +92,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4 text-lg text-white/90">
               {serviceCategories.map((item) => (
-                <li key={item} className="text-white/90">
+                <li key={item} className="text-white/90 hover:text-green-400 transition-colors cursor-default">
                   {item}
                 </li>
               ))}
@@ -105,27 +105,27 @@ const Footer = () => {
             </h3>
             <div className="space-y-5 text-lg text-white/90">
               <div className="flex items-start gap-4">
-                <i className="ri-phone-line mt-1 text-xl"></i>
+                <i className="ri-phone-line mt-1 text-xl text-green-400"></i>
                 <Link
                   to="tel:18008919866"
-                  className="transition-colors hover:text-white/60"
+                  className="transition-colors hover:text-green-400"
                 >
                   1800 891 9866
                 </Link>
               </div>
 
               <div className="flex items-start gap-4">
-                <i className="ri-mail-line mt-1 text-xl"></i>
+                <i className="ri-mail-line mt-1 text-xl text-green-400"></i>
                 <Link
                   to="mailto:info@ganisarsandassociates.com"
-                  className="transition-colors hover:text-white/60"
+                  className="transition-colors hover:text-green-400"
                 >
                   info@ganisarsandassociates.com
                 </Link>
               </div>
 
               <div className="flex items-start gap-4">
-                <i className="ri-map-pin-line mt-1 text-xl"></i>
+                <i className="ri-map-pin-line mt-1 text-xl text-green-400"></i>
                 <p className="max-w-sm leading-relaxed">
                   GA Nisars & Associates, Pimpri-Chinchwad, Maharashtra, India
                 </p>
@@ -134,7 +134,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-white/10 pt-6 text-center text-sm text-white/50">
+        <div className="mt-16 border-t border-green-900/40 pt-6 text-center text-sm text-white/50">
           © 2026 GA Nisars & Associates. All rights reserved.
         </div>
       </div>

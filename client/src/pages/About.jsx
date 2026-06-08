@@ -92,13 +92,13 @@ const About = () => {
             <div className="flex flex-wrap gap-4 mt-8">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/80"
+                className="inline-flex items-center justify-center rounded-xl bg-[#16a34a] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#15803d]"
               >
                 <i className="ri-phone-fill mr-2"> </i> Start Consultation
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center rounded-xl border border-black/15 px-6 py-3 text-sm font-semibold text-black transition hover:bg-black/5"
+                className="inline-flex items-center justify-center rounded-xl border border-[#bbf7d0] px-6 py-3 text-sm font-semibold text-[#15803d] transition hover:bg-[#f0fdf4]"
               >
                 <i className="ri-arrow-right-long-line mr-2"></i> View Services
               </Link>

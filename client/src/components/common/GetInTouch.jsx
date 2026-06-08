@@ -3,7 +3,7 @@ import React from "react";
 const GetInTouch = () => {
   return (
     <>
-      <section className="bg-[#f7f6f3] py-10 md:py-14 lg:py-16">
+      <section className="bg-[#f7faf7] py-10 md:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[520px_minmax(0,1fr)] lg:gap-12">
             <div className="overflow-hidden">
@@ -15,7 +15,7 @@ const GetInTouch = () => {
             </div>
 
             <div>
-              <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-[#111111] shadow-sm">
+              <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-[#bbf7d0] bg-white px-4 py-2 text-sm font-medium text-[#15803d] shadow-sm">
                 <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
                 <span>Get in touch</span>
               </div>
@@ -24,7 +24,7 @@ const GetInTouch = () => {
                 Send Your Message
               </h2>
 
-              <div className="mb-6 h-px w-full bg-black/20"></div>
+              <div className="mb-6 h-px w-full bg-[#bbf7d0]"></div>
 
               <form className="space-y-5">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -35,7 +35,7 @@ const GetInTouch = () => {
                     <input
                       type="text"
                       placeholder="Thomas Alison"
-                      className="h-[48px] w-full rounded-xl border border-black/15 bg-white px-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-black/30"
+                      className="h-[48px] w-full rounded-xl border border-black/15 bg-white px-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-[#16a34a] focus:ring-1 focus:ring-[#16a34a]/20"
                     />
                   </div>
 
@@ -46,7 +46,7 @@ const GetInTouch = () => {
                     <input
                       type="email"
                       placeholder="example@domain.com"
-                      className="h-[48px] w-full rounded-xl border border-black/15 bg-white px-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-black/30"
+                      className="h-[48px] w-full rounded-xl border border-black/15 bg-white px-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-[#16a34a] focus:ring-1 focus:ring-[#16a34a]/20"
                     />
                   </div>
 
@@ -57,7 +57,7 @@ const GetInTouch = () => {
                     <input
                       type="text"
                       placeholder="+91 123 456789"
-                      className="h-[48px] w-full rounded-xl border border-black/15 bg-white px-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-black/30"
+                      className="h-[48px] w-full rounded-xl border border-black/15 bg-white px-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-[#16a34a] focus:ring-1 focus:ring-[#16a34a]/20"
                     />
                   </div>
 
@@ -68,7 +68,7 @@ const GetInTouch = () => {
                     <input
                       type="text"
                       placeholder="Type Your Budget"
-                      className="h-[48px] w-full rounded-xl border border-black/15 bg-white px-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-black/30"
+                      className="h-[48px] w-full rounded-xl border border-black/15 bg-white px-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-[#16a34a] focus:ring-1 focus:ring-[#16a34a]/20"
                     />
                   </div>
                 </div>
@@ -80,13 +80,13 @@ const GetInTouch = () => {
                   <textarea
                     rows={6}
                     placeholder="Write your message"
-                    className="min-h-[160px] w-full rounded-xl border border-black/15 bg-white px-4 py-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-black/30"
+                    className="min-h-[160px] w-full rounded-xl border border-black/15 bg-white px-4 py-4 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-[#16a34a] focus:ring-1 focus:ring-[#16a34a]/20"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="inline-flex rounded-md bg-[#111111] px-7 py-3 text-sm font-medium text-white transition hover:bg-black/85"
+                  className="inline-flex rounded-md bg-[#16a34a] px-7 py-3 text-sm font-medium text-white transition hover:bg-[#15803d] hover:shadow-lg hover:shadow-green-200"
                 >
                   <i className="ri-arrow-right-long-line mr-2"></i> Send Message
                 </button>
@@ -100,11 +100,11 @@ const GetInTouch = () => {
       <section className="my-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className=" grid grid-cols-1 gap-5 md:grid-cols-3">
-            <div className="rounded-[18px] bg-[#f3f2ef] p-6">
+            <div className="rounded-[18px] bg-[#f0fdf4] border border-[#bbf7d0] p-6">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm">
-                <i className="ri-map-pin-line text-[20px] text-[#111111]"></i>
+                <i className="ri-map-pin-line text-[20px] text-[#16a34a]"></i>
               </div>
-              <div className="mb-4 h-px w-full bg-black/20"></div>
+              <div className="mb-4 h-px w-full bg-[#bbf7d0]"></div>
               <h3 className="mb-3 text-[30px] font-medium leading-none text-[#111111]">
                 Our Address
               </h3>
@@ -113,11 +113,11 @@ const GetInTouch = () => {
               </p>
             </div>
 
-            <div className="rounded-[18px] bg-[#f3f2ef] p-6">
+            <div className="rounded-[18px] bg-[#f0fdf4] border border-[#bbf7d0] p-6">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm">
-                <i className="ri-phone-line text-[20px] text-[#111111]"></i>
+                <i className="ri-phone-line text-[20px] text-[#16a34a]"></i>
               </div>
-              <div className="mb-4 h-px w-full bg-black/20"></div>
+              <div className="mb-4 h-px w-full bg-[#bbf7d0]"></div>
               <h3 className="mb-3 text-[30px] font-medium leading-none text-[#111111]">
                 Phone
               </h3>
@@ -126,11 +126,11 @@ const GetInTouch = () => {
               </p>
             </div>
 
-            <div className="rounded-[18px] bg-[#f3f2ef] p-6">
+            <div className="rounded-[18px] bg-[#f0fdf4] border border-[#bbf7d0] p-6">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm">
-                <i className="ri-mail-line text-[20px] text-[#111111]"></i>
+                <i className="ri-mail-line text-[20px] text-[#16a34a]"></i>
               </div>
-              <div className="mb-4 h-px w-full bg-black/20"></div>
+              <div className="mb-4 h-px w-full bg-[#bbf7d0]"></div>
               <h3 className="mb-3 text-[30px] font-medium leading-none text-[#111111]">
                 Email
               </h3>

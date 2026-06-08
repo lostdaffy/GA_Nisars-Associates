@@ -1,15 +1,9 @@
-// ─── servicesData.js ────────────────────────────────────────────────────────
-// Central data file for all service categories.
-// Each service has: slug, category, emoji, image, tagline, desc,
-//                   items (with sub-details), process steps, faqs, cta.
-// ─────────────────────────────────────────────────────────────────────────────
-
 export const servicesData = [
   {
     slug: "company-registration",
     category: "Company Registration",
     emoji: "🏢",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80",
     tagline: "Start Your Business the Right Way",
     desc:
       "We help entrepreneurs, startups, and professionals register their business legally and efficiently. From Pvt Ltd to NGOs, we handle all paperwork, government filings, and compliance so you can focus on growing.",
@@ -65,7 +59,7 @@ export const servicesData = [
     slug: "gst-compliance",
     category: "GST & Compliance",
     emoji: "📋",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80",
     tagline: "Stay Compliant, Stay Ahead",
     desc:
       "GST registration, MSME certification, GEM portal, FSSAI, and more — we make sure your business ticks every compliance checkbox. Avoid penalties with our expert-guided services.",
@@ -121,7 +115,7 @@ export const servicesData = [
     slug: "ip-india-trademark",
     category: "IP India & Trademark",
     emoji: "™️",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80",
     tagline: "Protect Your Brand Identity",
     desc:
       "Your brand is your most valuable asset. We help you register trademarks, logos, copyrights, and patents with the IP India office, ensuring your intellectual property is legally protected.",
@@ -177,7 +171,7 @@ export const servicesData = [
     slug: "digital-signature",
     category: "Digital Signature",
     emoji: "✍️",
-    image: "https://images.unsplash.com/photo-1633265486064-086b219458ec?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
     tagline: "Sign Digitally, Work Faster",
     desc:
       "Digital Signatures (DSC) are legally valid electronic signatures required for MCA filings, GST, income tax, tenders, and more. We provide all classes of DSC quickly and affordably.",
@@ -237,7 +231,7 @@ export const servicesData = [
     slug: "labour-licence",
     category: "Labour & Licence",
     emoji: "👷",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80",
     tagline: "Full Labour Law Compliance",
     desc:
       "Stay legally compliant with all labour laws. We handle Shop & Establishment registration, ESI, EPFO, and labour licences for businesses of all sizes.",
@@ -293,7 +287,7 @@ export const servicesData = [
     slug: "legal-tax",
     category: "Legal & Tax",
     emoji: "⚖️",
-    image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?w=900&q=80",
     tagline: "Expert Legal & Tax Solutions",
     desc:
       "Comprehensive legal and tax services including drug licences, income tax notices, land mutation, property registry, legal metrology, and export/import compliance — all under one roof.",
@@ -379,7 +373,7 @@ export const servicesData = [
     slug: "security-agency",
     category: "Security Agency",
     emoji: "🛡️",
-    image: "https://images.unsplash.com/photo-1582139329536-e7284fece509?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=80",
     tagline: "Complete Security Agency Setup",
     desc:
       "Start and run a legally compliant security agency with PSARA licence, MOA drafting, labour registrations, and all related compliance services.",
@@ -440,7 +434,7 @@ export const servicesData = [
     slug: "fire-services",
     category: "Fire Services",
     emoji: "🔥",
-    image: "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
     tagline: "Fire Safety & NOC Compliance",
     desc:
       "Obtain Fire NOC, fire service registration, and all fire safety licences required for your commercial establishment, factory, or residential society.",
@@ -501,7 +495,7 @@ export const servicesData = [
     slug: "ngo-society",
     category: "NGO & Society",
     emoji: "🤝",
-    image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=900&q=80",
     tagline: "Empowering Social Impact Organizations",
     desc:
       "Register your NGO, Trust, or Society and unlock tax exemptions, government grants, CSR funding, and NITI Aayog empanelment. We handle everything from registration to compliance.",
@@ -567,7 +561,7 @@ export const servicesData = [
     slug: "real-estate-rera",
     category: "Real Estate & RERA",
     emoji: "🏠",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80",
     tagline: "Property & Real Estate Compliance",
     desc:
       "RERA registration, trade licences, property mutation, registry, and all real estate legal compliance for builders, agents, and property buyers in Uttarakhand and nearby regions.",
@@ -628,7 +622,7 @@ export const servicesData = [
     slug: "advisor-consultancy",
     category: "Advisor / Consultancy",
     emoji: "💼",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80",
     tagline: "Strategic Business Guidance",
     desc:
       "Expert business advisory and consultancy services for startups, MSMEs, and established enterprises — especially in Uttarakhand. We provide end-to-end guidance on legal, tax, property, and business strategy.",
@@ -694,7 +688,7 @@ export const servicesData = [
     slug: "website-ecommerce",
     category: "Website & E-Commerce",
     emoji: "🌐",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=900&q=80",
     tagline: "Your Digital Presence, Built Right",
     desc:
       "Professional website development, e-commerce stores, and mobile app development. Whether you are a startup or an established business, we build your online presence from scratch.",
@@ -745,7 +739,7 @@ export const servicesData = [
     slug: "design-marketing",
     category: "Design & Marketing",
     emoji: "🎨",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=900&q=80",
     tagline: "Creative Design That Converts",
     desc:
       "From logo design to social media management and promotional videos — our creative team helps your brand stand out and attract customers across all platforms.",

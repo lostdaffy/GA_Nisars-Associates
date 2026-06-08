@@ -1,23 +1,23 @@
-import { ShieldCheck, BadgeCheck, Clock3, Sparkles, ArrowUpRight, Box } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const reasons = [
   {
-    icon: ShieldCheck,
+    icon: "ri-shield-check-line",
     title: "Trusted Guidance",
     text: "Clear support for GST, MSME, trademark, company registration, and legal formalities.",
   },
   {
-    icon: BadgeCheck,
+    icon: "ri-percent-line",
     title: "All-in-One Services",
     text: "One team for business setup, compliance, digital signatures, and branding needs.",
   },
   {
-    icon: Clock3,
+    icon: "ri-time-line",
     title: "Fast & Responsive",
     text: "Quick coordination and timely updates so your work moves without delays.",
   },
   {
-    icon: Sparkles,
+    icon: "ri-book-open-line",
     title: "Professional Approach",
     text: "Clean process, proper documentation, and practical solutions for every client.",
   },
@@ -27,45 +27,68 @@ const WhyChooseUs = () => {
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-neutral-100 px-4 py-2 text-[13px] font-medium text-neutral-700">
-            <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
-            Why Choose Us
-          </span>
-        </div>
+        <div className="grid items-center gap-12 lg:grid-cols-[520px_1fr] lg:gap-20">
+          {/* ── Left: Image ── */}
+          <div className="relative">
+            <div className="overflow-hidden rounded-[32px] border border-[#e5e7eb]">
+              <img
+                src="/images/why-choose-us.jpg"
+                alt="Why choose Nisars & Associates"
+                className="h-[280px] w-full object-cover object-center sm:h-[380px] lg:h-[580px]"
+              />
+            </div>
+          </div>
 
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-[34px] font-semibold leading-[1.1] tracking-[-0.03em] text-neutral-900 sm:text-[46px] lg:text-[60px]">
-            Why Businesses Trust Our Services
-          </h2>
-          <p className="mt-4 text-[16px] leading-[1.7] text-neutral-600 sm:text-[18px]">
-            We make business registration, compliance, and branding simple, structured, and dependable — so you can focus on growth.
-          </p>
-        </div>
+          {/* ── Right: Content ── */}
+          <div>
+            {/* Label */}
+            <div className="mb-5 flex items-center gap-2">
+              <div className="h-4 w-1 rounded-full bg-[#16a34a]" />
+              <span className="text-[13px] font-semibold text-[#16a34a]">
+                Why Choose Us?
+              </span>
+            </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {reasons.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="group rounded-[24px] border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <Icon className="h-8 w-8 text-neutral-900" />
-                  <ArrowUpRight className="h-5 w-5 text-neutral-400 transition group-hover:text-neutral-700" />
+            {/* Heading */}
+            <h2 className="text-[2rem] font-bold leading-[1.0] tracking-[-0.02em] text-[#111] sm:text-[2.5rem] lg:text-[2.8rem]">
+              When Your Business{" "}
+              <span className="rounded-lg px-3 py-1 text-[#16a34a]">Needs</span>{" "}
+              It Most —{" "}
+              <span className="rounded-lg  px-3 py-1 text-[#16a34a]">
+                Expert Help
+              </span>
+            </h2>
+
+            {/* Description */}
+            <p className="mt-6 text-[0.975rem] leading-[1.85] text-[#6b7280] sm:text-[1.05rem]">
+              Most service providers treat you like a form to be filled. We
+              don't. From the moment you reach out, you get a dedicated point of
+              contact who understands your situation — whether you're a
+              first-time founder or an established business managing annual
+              compliance. No chasing. No confusion. Just results.
+            </p>
+
+            {/* ── 4 Reasons Grid ── */}
+            <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
+              {reasons.map((item) => (
+                <div key={item.title} className="flex items-start gap-4">
+                  {/* Icon */}
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#bbf7d0] bg-[#f0fdf4]">
+                    <i className={`${item.icon} text-[22px] text-[#16a34a]`} />
+                  </div>
+                  {/* Text */}
+                  <div>
+                    <h3 className="text-[17px] font-semibold text-[#111]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-[15px] leading-[1.75] text-[#6b7280]">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
-
-                <h3 className="mt-6 text-[22px] font-semibold tracking-[-0.02em] text-neutral-900 sm:text-[24px]">
-                  {item.title}
-                </h3>
-
-                <p className="mt-3 text-[15px] leading-[1.7] text-neutral-600 sm:text-[16px]">
-                  {item.text}
-                </p>
-              </div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

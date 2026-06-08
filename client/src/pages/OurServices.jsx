@@ -102,7 +102,7 @@ const OurServices = () => {
             {/* ── Right: Content ── */}
             <div className="flex flex-col justify-center">
               {/* Label */}
-              <div className="s1-anim-1 mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-[#111] shadow-sm">
+              <div className="s1-anim-1 mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-[#bbf7d0] bg-[#f0fdf4] px-4 py-2 text-sm font-medium text-[#15803d] shadow-sm">
                 <img src="/images/brand-logo.png" className="h-5 w-5" alt="" />
                 Expert Services
               </div>
