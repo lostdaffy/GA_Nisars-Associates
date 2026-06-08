@@ -3,206 +3,308 @@ import PageHero from "../components/common/PageHero";
 import { Link } from "react-router-dom";
 import GetInTouch from "../components/common/GetInTouch";
 import AllServices from "../components/Home/AllServices";
+import useScrollReveal from "../hooks/useScrollReveal";
+
+const features = [
+  { icon: "ri-government-line", title: "GST Services" },
+  { icon: "ri-file-text-line", title: "Income Tax" },
+  { icon: "ri-building-2-line", title: "Company Registration" },
+  { icon: "ri-scales-3-line", title: "Legal Services" },
+];
+
+const stats = [
+  { value: "500+", label: "Clients Served" },
+  { value: "8+", label: "Years Experience" },
+  { value: "98%", label: "Success Rate" },
+  { value: "15+", label: "Services Offered" },
+];
+
+const benefits = [
+  {
+    title: "Fast & Reliable Delivery",
+    desc: "We ensure timely service execution without compromising quality, accuracy, or client satisfaction.",
+  },
+  {
+    title: "Tailored To Your Needs",
+    desc: "Every service is customized to match your business goals, compliance needs, and legal requirements.",
+  },
+  {
+    title: "Transparent Pricing",
+    desc: "No surprise charges — you get a clear quote upfront with government fees and service charges included.",
+  },
+];
+
 const OurServices = () => {
-  const features = [
-    {
-      icon: "ri-government-line",
-      title: "GST Services",
-      desc: "Registration, return filing, notice handling, and end-to-end GST compliance for your business.",
-      tag: "Most Popular",
-    },
-    {
-      icon: "ri-file-text-line",
-      title: "Income Tax",
-      desc: "ITR filing, tax planning, assessment responses, and saving strategies for individuals and businesses.",
-      tag: "Essential",
-    },
-    {
-      icon: "ri-building-2-line",
-      title: "Company Registration",
-      desc: "Pvt Ltd, LLP, OPC, Partnership — complete incorporation with MCA filings and documentation.",
-      tag: "Startup Friendly",
-    },
-    {
-      icon: "ri-scales-3-line",
-      title: "Legal Services",
-      desc: "Contracts, notices, property registry, trademark, and litigation support by experienced professionals.",
-      tag: "Expert Backed",
-    },
-  ];
-
-  const stats = [
-    { value: "500+", label: "Clients Served" },
-    { value: "8+", label: "Years Experience" },
-    { value: "98%", label: "Success Rate" },
-    { value: "15+", label: "Services Offered" },
-  ];
-
-  const benefits = [
-    {
-      title: "Fast & Reliable Delivery",
-      desc: "We ensure timely service execution without compromising quality, accuracy, or client satisfaction.",
-    },
-    {
-      title: "Tailored To Your Needs",
-      desc: "Every service is customized to match your business goals, compliance needs, and legal requirements.",
-    },
-  ];
+  const { ref: sec1ImgRef, visible: sec1ImgVisible } = useScrollReveal();
+  const { ref: sec1ContentRef, visible: sec1ContentVisible } = useScrollReveal();
+  const { ref: portfolioRef, visible: portfolioVisible } = useScrollReveal(0.1);
+  const { ref: splitImgRef, visible: splitImgVisible } = useScrollReveal();
+  const { ref: splitContentRef, visible: splitContentVisible } = useScrollReveal();
 
   return (
     <>
-      {/* Hero Section */}
+      <style>{`
+        .os-fade-left {
+          opacity: 0;
+          transform: translateX(-36px);
+          transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+        .os-fade-left.os-visible { opacity: 1; transform: translateX(0); }
+
+        .os-fade-right {
+          opacity: 0;
+          transform: translateX(36px);
+          transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+        .os-fade-right.os-visible { opacity: 1; transform: translateX(0); }
+
+        .os-fade-up {
+          opacity: 0;
+          transform: translateY(32px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .os-fade-up.os-visible { opacity: 1; transform: translateY(0); }
+
+        .os-feat {
+          opacity: 0;
+          transform: translateY(18px);
+          transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .os-feat.os-visible { opacity: 1; transform: translateY(0); }
+
+        .os-portfolio-h {
+          opacity: 0;
+          transform: translateY(44px);
+          transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+        }
+        .os-portfolio-h.os-visible { opacity: 1; transform: translateY(0); }
+
+        .os-portfolio-p {
+          opacity: 0;
+          transform: translateY(28px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+          transition-delay: 0.18s;
+        }
+        .os-portfolio-p.os-visible { opacity: 1; transform: translateY(0); }
+
+        .os-benefit {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .os-benefit.os-visible { opacity: 1; transform: translateY(0); }
+
+        .feat-card-hover {
+          transition: border-color 0.2s, background 0.2s, transform 0.2s;
+        }
+        .feat-card-hover:hover {
+          border-color: #bbf7d0;
+          background: #f0fdf4;
+          transform: translateY(-2px);
+        }
+        .feat-card-hover:hover .feat-icon-box {
+          background: #16a34a;
+          border-color: #15803d;
+        }
+        .feat-card-hover:hover .feat-icon-box i {
+          color: white;
+        }
+        .feat-icon-box {
+          transition: background 0.2s, border-color 0.2s;
+        }
+      `}</style>
 
       <PageHero
         title="Our Services & Expertise"
         des="Trusted tax, legal, and compliance solutions."
       />
 
-      <section className="bg-white py-12 md:py-16 lg:py-20">
-        <style>{`
-      @keyframes fade-up {
-        from { opacity: 0; transform: translateY(18px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
-      .s1-anim-1 { animation: fade-up 0.55s 0.05s ease both; }
-      .s1-anim-2 { animation: fade-up 0.55s 0.12s ease both; }
-      .s1-anim-3 { animation: fade-up 0.55s 0.20s ease both; }
-      .s1-anim-4 { animation: fade-up 0.55s 0.28s ease both; }
-    `}</style>
-
+      {/* ── Section 1: Intro ── */}
+      <section className="bg-white py-16 md:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-            {/* ── Left: Image + Stats ── */}
-            <div className="s1-anim-1 hidden flex-col gap-6 lg:flex">
-              <div className="relative overflow-hidden rounded-2xl">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+
+            {/* Left: Image + Stats */}
+            <div
+              ref={sec1ImgRef}
+              className={`os-fade-left hidden flex-col gap-6 lg:flex ${sec1ImgVisible ? "os-visible" : ""}`}
+            >
+              <div className="relative overflow-hidden rounded-3xl border border-[#e5e7eb] shadow-sm">
                 <img
-                  src="/images/hero-img.jpg"
+                  src="/images/handshake.jpg"
                   alt="Professional business services team"
                   className="h-[520px] w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
-                {/* Stats grid bottom-right */}
-                <div className="absolute bottom-5 right-5 grid grid-cols-2 gap-2">
+                {/* Stats grid */}
+                <div className="absolute bottom-5 left-5 right-5 grid grid-cols-4 gap-2">
                   {stats.map((s) => (
                     <div
                       key={s.label}
-                      className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-center backdrop-blur-md"
+                      className="rounded-xl border border-white/15 bg-white/10 px-3 py-3 text-center backdrop-blur-md"
                     >
-                      <p className="text-xl font-semibold leading-none text-white">
+                      <p className="text-[18px] font-bold leading-none text-white">
                         {s.value}
                       </p>
-                      <p className="mt-1 text-xs text-white/70">{s.label}</p>
+                      <p className="mt-1 text-[11px] text-white/70">{s.label}</p>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* ── Right: Content ── */}
-            <div className="flex flex-col justify-center">
-              {/* Label */}
-              <div className="s1-anim-1 mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-[#bbf7d0] bg-[#f0fdf4] px-4 py-2 text-sm font-medium text-[#15803d] shadow-sm">
+            {/* Right: Content */}
+            <div
+              ref={sec1ContentRef}
+              className={`os-fade-right flex flex-col justify-center ${sec1ContentVisible ? "os-visible" : ""}`}
+              style={{ transitionDelay: "0.1s" }}
+            >
+              <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-[#bbf7d0] bg-[#f0fdf4] px-4 py-2 text-sm font-medium text-[#15803d]">
                 <img src="/images/brand-logo.png" className="h-5 w-5" alt="" />
                 Expert Services
               </div>
 
-              {/* Heading */}
-              <h2 className="s1-anim-2 max-w-lg text-4xl font-semibold leading-[1.15] tracking-[-0.03em] text-black lg:text-5xl">
-                Everything Your Business
-                <span className="block text-black/30">Legally Needs</span>
+              <h2 className="text-4xl font-semibold leading-[1.12] tracking-[-0.02em] text-[#111] sm:text-5xl">
+                Everything Your Business{" "}
+                <span className="text-[#16a34a]">Legally Needs</span>
               </h2>
 
-              {/* Subtext */}
-              <p className="s1-anim-3 mt-5 max-w-md text-base leading-relaxed text-black/55 sm:text-lg">
+              <p className="mt-5 text-[1rem] leading-[1.85] text-[#6b7280] sm:text-[1.05rem]">
                 From day-one registration to annual compliance — we handle every
-                legal and tax requirement so you can focus on growing your
-                business.
+                legal and tax requirement so you can focus on growing your business.
               </p>
 
-              {/* Feature List */}
-              <div className="s1-anim-4 mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-                {features.map((item) => (
+              {/* Feature tiles */}
+              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {features.map((item, i) => (
                   <div
                     key={item.title}
-                    className="flex items-start gap-4 rounded-2xl border border-black/[0.07] p-4"
+                    className={`os-feat feat-card-hover flex items-center gap-3 rounded-2xl border border-[#f0f0f0] bg-[#fafafa] px-4 py-4 ${sec1ContentVisible ? "os-visible" : ""}`}
+                    style={{ transitionDelay: `${0.2 + i * 0.08}s` }}
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-black/[0.08] bg-[#f4f4f4]">
-                      <i className={`${item.icon} text-lg text-black/60`} />
+                    <div className="feat-icon-box flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#bbf7d0] bg-[#f0fdf4]">
+                      <i className={`${item.icon} text-[18px] text-[#16a34a]`} />
                     </div>
-
-                    <div>
-                      <p className="text-base font-semibold text-black">
-                        {item.title}
-                      </p>
-                    </div>
+                    <span className="text-[14.5px] font-semibold text-[#111]">
+                      {item.title}
+                    </span>
                   </div>
                 ))}
+              </div>
+
+              {/* CTA */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex h-12 items-center gap-2 rounded-xl bg-[#16a34a] px-7 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#15803d] hover:shadow-lg hover:shadow-green-200"
+                >
+                  <i className="ri-phone-fill" /> Free Consultation
+                </Link>
+                <Link
+                  to="/contact"
+                  className="inline-flex h-12 items-center gap-2 rounded-xl border border-[#bbf7d0] bg-white px-7 text-sm font-medium text-[#15803d] transition-all hover:border-[#16a34a] hover:bg-[#f0fdf4]"
+                >
+                  <i className="ri-whatsapp-line" /> WhatsApp Us
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── All Services Grid ── */}
       <AllServices />
 
-      <section className="bg-white py-12 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
-          <h2 className="text-[56px] font-semibold leading-none tracking-[-0.04em] text-[#111111] sm:text-[84px] md:text-[110px] lg:text-[150px]">
+      {/* ── Portfolio Text ── */}
+      <section
+        ref={portfolioRef}
+        className="overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2
+            className={`os-portfolio-h text-[48px] font-bold leading-none tracking-[-0.04em] text-[#111] sm:text-[72px] md:text-[96px] lg:text-[120px] ${portfolioVisible ? "os-visible" : ""}`}
+          >
             Our Services
           </h2>
 
-          <p className="mt-10 max-w-[1400px] text-[20px] leading-[1.7] text-black/70 sm:text-[26px] md:text-[32px] lg:text-[36px]">
-            GA Nisaras and Associates provides expert GST, income tax, legal
-            advisory, company registration, drafting, compliance, and litigation
-            support services in Roorkee, Uttarakhand, delivering practical
-            solutions with trust, transparency, and timely execution.
-          </p>
+          <div className="mt-8 flex items-start gap-8 lg:mt-12 lg:gap-16">
+            <div className="hidden h-px flex-1 translate-y-4 bg-[#e5e7eb] lg:block" />
+            <p
+              className={`os-portfolio-p max-w-3xl text-[18px] leading-[1.75] text-[#6b7280] sm:text-[22px] lg:text-[26px] ${portfolioVisible ? "os-visible" : ""}`}
+            >
+              GA Nisars and Associates provides expert GST, income tax, legal
+              advisory, company registration, drafting, compliance, and litigation
+              support services in Roorkee, Uttarakhand, delivering practical
+              solutions with trust, transparency, and timely execution.
+            </p>
+          </div>
+
+          <div className="mt-12 flex items-center gap-4">
+            <div className="h-px flex-1 bg-[#f0f0f0]" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#bbf7d0] bg-[#f0fdf4]">
+              <i className="ri-scales-3-line text-[18px] text-[#16a34a]" />
+            </div>
+            <div className="h-px flex-1 bg-[#f0f0f0]" />
+          </div>
         </div>
       </section>
 
+      {/* ── Split Section: Why Choose ── */}
       <section className="bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="h-full">
+
+          {/* Image */}
+          <div
+            ref={splitImgRef}
+            className={`os-fade-left ${splitImgVisible ? "os-visible" : ""}`}
+          >
             <img
               src="/images/contact-girl.jpg"
-              alt="Professional consultation team"
-              className="h-[420px] w-full object-cover sm:h-[520px] lg:h-full lg:min-h-[760px]"
+              alt="Professional consultation"
+              className="h-[360px] w-full object-cover sm:h-[480px] lg:h-full lg:min-h-[700px]"
             />
           </div>
 
-          <div className="bg-[#1f1f1f] px-6 py-12 text-white sm:px-10 lg:px-14 lg:py-16 xl:px-16">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/50 px-4 py-2 text-[13px] font-medium text-black">
-              <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
-              Benefit
-            </span>
+          {/* Content */}
+          <div
+            ref={splitContentRef}
+            className={`os-fade-right bg-[#071409] px-6 py-14 text-white sm:px-10 lg:px-14 lg:py-20 xl:px-16 ${splitContentVisible ? "os-visible" : ""}`}
+            style={{ transitionDelay: "0.12s" }}
+          >
+            {/* Badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-800/40 bg-green-900/20 px-4 py-2 text-[13px] font-medium text-green-400">
+              <img src="/images/brand-logo.png" className="h-5 w-5 opacity-70" alt="" />
+              Why Choose Us
+            </div>
 
-            <h2 className="max-w-lg text-4xl font-semibold leading-[1.2] text-white sm:text-5xl lg:text-[58px]">
-              Why Choose Our Services
+            <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.02em] text-white sm:text-5xl lg:text-[52px]">
+              Why Choose Our{" "}
+              <span className="text-green-400/70">Services</span>
             </h2>
 
-            <p className="mt-6 max-w-xl text-base leading-8 text-white/78 sm:text-lg">
-              Get dependable legal and taxation support with practical
-              solutions, timely execution, and services tailored to your
-              business needs.
+            <p className="mt-5 text-[1rem] leading-[1.85] text-white/50 sm:text-[1.05rem]">
+              Get dependable legal and taxation support with practical solutions,
+              timely execution, and services tailored to your business needs.
             </p>
 
-            <div className="mt-10 space-y-8">
-              {benefits.map((item, index) => (
+            {/* Benefits */}
+            <div className="mt-10 space-y-0">
+              {benefits.map((item, i) => (
                 <div
                   key={item.title}
-                  className={`${index !== 0 ? "pt-8" : "pt-0"} border-t border-white/12`}
+                  className={`os-benefit ${splitContentVisible ? "os-visible" : ""} ${i !== 0 ? "border-t border-white/[0.08] pt-8 mt-8" : ""}`}
+                  style={{ transitionDelay: `${0.2 + i * 0.12}s` }}
                 >
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 flex h-7 w-7 items-center justify-center rounded-full border border-[#d96b4f]/70 text-[#d96b4f]">
-                      <i className="ri-checkbox-circle-line text-[14px]"></i>
+                    <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-green-700/40 bg-green-900/30">
+                      <i className="ri-checkbox-circle-line text-[15px] text-green-400" />
                     </div>
-
                     <div>
-                      <h3 className="text-[28px] font-semibold leading-tight text-white sm:text-[32px]">
+                      <h3 className="text-[22px] font-semibold leading-tight text-white sm:text-[26px]">
                         {item.title}
                       </h3>
-                      <p className="mt-3 max-w-lg text-base leading-8 text-white/78">
+                      <p className="mt-2.5 text-[15px] leading-[1.8] text-white/50">
                         {item.desc}
                       </p>
                     </div>
@@ -210,12 +312,27 @@ const OurServices = () => {
                 </div>
               ))}
             </div>
+
+            {/* CTA */}
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex h-12 items-center gap-2 rounded-xl bg-[#16a34a] px-7 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#15803d] hover:shadow-lg hover:shadow-green-900/50"
+              >
+                <i className="ri-phone-line" /> Call Now
+              </Link>
+              <a
+                href="https://wa.me/918194000564"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-7 text-sm font-medium text-white/80 transition-all hover:border-white/20 hover:bg-white/10"
+              >
+                <i className="ri-whatsapp-line" /> WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Contact Section */}
-      <GetInTouch />
     </>
   );
 };

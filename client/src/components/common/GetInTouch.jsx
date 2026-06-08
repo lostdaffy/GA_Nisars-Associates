@@ -122,7 +122,7 @@ const GetInTouch = () => {
                 Phone
               </h3>
               <p className="text-lg leading-8 text-black/75">
-                +91 997 078 7600
+               1800 891 9866
               </p>
             </div>
 

@@ -1,3 +1,5 @@
+import useScrollReveal from "../../hooks/useScrollReveal";
+
 const steps = [
   {
     step: "01",
@@ -26,12 +28,38 @@ const steps = [
 ];
 
 const HowItWorks = () => {
+  const { ref: headRef, visible: headVisible } = useScrollReveal();
+  const { ref: stepsRef, visible: stepsVisible } = useScrollReveal(0.1);
+
   return (
     <section className="w-full bg-[#f8fdf9] py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <style>{`
+        .hw-fade {
+          opacity: 0;
+          transform: translateY(28px);
+          transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .hw-fade.hw-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .hw-card {
+          opacity: 0;
+          transform: translateY(32px);
+          transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .hw-card.hw-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <div
+          ref={headRef}
+          className={`hw-fade mx-auto max-w-2xl text-center ${headVisible ? "hw-visible" : ""}`}
+        >
           <span className="inline-flex items-center gap-2 rounded-full border border-[#bbf7d0] bg-[#f0fdf4] px-4 py-2 text-[13px] font-medium text-[#15803d]">
             <img src="/images/brand-logo.png" className="h-5 w-5" alt="" />
             How It Works
@@ -47,19 +75,22 @@ const HowItWorks = () => {
         </div>
 
         {/* Steps */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div
+          ref={stepsRef}
+          className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {steps.map((s, i) => (
-            <div key={s.step} className="relative flex flex-col">
-
-              {/* Connector line — desktop only */}
+            <div
+              key={s.step}
+              className={`hw-card relative flex flex-col ${stepsVisible ? "hw-visible" : ""}`}
+              style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
+            >
+              {/* Connector line */}
               {i < steps.length - 1 && (
                 <div className="absolute right-0 top-[28px] hidden h-px w-[calc(100%-56px)] translate-x-full border-t border-dashed border-[#bbf7d0] lg:block" />
               )}
 
-              {/* Card */}
               <div className="group flex flex-col gap-5 rounded-2xl border border-[#e8fce8] bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[#bbf7d0] hover:shadow-[0_8px_28px_rgba(22,163,74,0.10)]">
-
-                {/* Step number + icon */}
                 <div className="flex items-center justify-between">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#bbf7d0] bg-[#f0fdf4] transition-all duration-200 group-hover:border-[#15803d] group-hover:bg-[#16a34a]">
                     <i className={`${s.icon} text-[22px] text-[#16a34a] transition-colors duration-200 group-hover:text-white`} />
@@ -68,20 +99,14 @@ const HowItWorks = () => {
                     {s.step}
                   </span>
                 </div>
-
                 <div>
-                  <h3 className="text-[17px] font-semibold text-[#111]">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-[14.5px] leading-[1.75] text-[#6b7280]">
-                    {s.desc}
-                  </p>
+                  <h3 className="text-[17px] font-semibold text-[#111]">{s.title}</h3>
+                  <p className="mt-2 text-[14.5px] leading-[1.75] text-[#6b7280]">{s.desc}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

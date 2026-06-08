@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const CTABanner = () => {
+  const { ref: leftRef, visible: leftVisible } = useScrollReveal();
+  const { ref: rightRef, visible: rightVisible } = useScrollReveal();
+
   return (
     <section
       className="relative w-full overflow-hidden py-16 sm:py-20"
@@ -13,6 +17,27 @@ const CTABanner = () => {
         backgroundSize: "36px 36px",
       }}
     >
+      <style>{`
+        .cta-left {
+          opacity: 0;
+          transform: translateX(-36px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .cta-left.cta-visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        .cta-right {
+          opacity: 0;
+          transform: translateX(36px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .cta-right.cta-visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      `}</style>
+
       {/* Orbs */}
       <div
         className="pointer-events-none absolute left-0 top-0 h-[400px] w-[400px] rounded-full"
@@ -26,8 +51,11 @@ const CTABanner = () => {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-10 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
 
-          {/* Left: Text */}
-          <div className="max-w-2xl">
+          {/* Left */}
+          <div
+            ref={leftRef}
+            className={`cta-left max-w-2xl ${leftVisible ? "cta-visible" : ""}`}
+          >
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-green-800/40 bg-green-900/20 px-4 py-1.5 text-[13px] font-medium text-green-400">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400" />
               Ready to Get Started?
@@ -42,7 +70,6 @@ const CTABanner = () => {
               fast turnaround.
             </p>
 
-            {/* Trust row */}
             <div className="mt-7 flex flex-wrap items-center justify-center gap-5 lg:justify-start">
               {["Free Consultation", "No Hidden Charges", "24–72 hr Turnaround"].map((t) => (
                 <div key={t} className="flex items-center gap-2">
@@ -58,18 +85,22 @@ const CTABanner = () => {
           </div>
 
           {/* Right: CTA Card */}
-          <div className="w-full max-w-sm shrink-0">
+          <div
+            ref={rightRef}
+            className={`cta-right w-full max-w-sm shrink-0 ${rightVisible ? "cta-visible" : ""}`}
+            style={{ transitionDelay: "0.15s" }}
+          >
             <div className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm">
               <p className="text-[13px] font-medium text-white/50">
                 Talk to an expert — free of cost
               </p>
               <p className="mt-1 text-[22px] font-bold text-white">
-                +91 997 078 7600
+                1800 891 9866
               </p>
 
               <div className="mt-6 flex flex-col gap-3">
                 <a
-                  href="tel:+919970787600"
+                  href="tel:1800 891 9866"
                   className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#16a34a] text-[15px] font-semibold text-white transition-all hover:bg-[#15803d] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-900/50"
                 >
                   <i className="ri-phone-line text-[17px]" />
@@ -77,7 +108,7 @@ const CTABanner = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/919970787600"
+                  href="https://wa.me/918194000564"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-12 w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 text-[15px] font-medium text-white/80 transition-all hover:border-white/20 hover:bg-white/10"

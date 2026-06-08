@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Quote } from "lucide-react";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const testimonials = [
   {
@@ -32,6 +32,9 @@ const TestimonialSlider = () => {
   const frameRef = useRef(null);
   const positionRef = useRef(0);
   const [ready, setReady] = useState(false);
+
+  const { ref: headRef, visible: headVisible } = useScrollReveal();
+  const { ref: sliderRef, visible: sliderVisible } = useScrollReveal(0.1);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -68,25 +71,55 @@ const TestimonialSlider = () => {
 
   return (
     <section className="w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+      <style>{`
+        .tm-fade {
+          opacity: 0;
+          transform: translateY(28px);
+          transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .tm-fade.tm-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .tm-slider {
+          opacity: 0;
+          transition: opacity 0.8s ease;
+        }
+        .tm-slider.tm-visible {
+          opacity: 1;
+        }
+      `}</style>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-neutral-100 px-4 py-2 text-[13px] font-medium text-neutral-700">
-            <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
-            Testimonial
-          </span>
+        {/* Header */}
+        <div
+          ref={headRef}
+          className={`tm-fade ${headVisible ? "tm-visible" : ""}`}
+        >
+          <div className="mb-6 flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-neutral-100 px-4 py-2 text-[13px] font-medium text-neutral-700">
+              <img src="/images/brand-logo.png" className="h-6 w-6" alt="" />
+              Testimonial
+            </span>
+          </div>
+
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-[34px] font-semibold leading-[1.1] tracking-[-0.03em] text-neutral-900 sm:text-[46px] lg:text-[60px]">
+              What Our Clients Are Saying
+            </h2>
+            <p className="mt-4 text-[16px] leading-[1.7] text-neutral-600 sm:text-[18px]">
+              Hear directly from our clients about their experience with our
+              business registration, compliance, and consultancy services.
+            </p>
+          </div>
         </div>
 
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-[34px] font-semibold leading-[1.1] tracking-[-0.03em] text-neutral-900 sm:text-[46px] lg:text-[60px]">
-            What Our Clients Are Saying
-          </h2>
-          <p className="mt-4 text-[16px] leading-[1.7] text-neutral-600 sm:text-[18px]">
-            Hear directly from our clients about their experience with our
-            business registration, compliance, and consultancy services.
-          </p>
-        </div>
-
-        <div className="mt-12 overflow-hidden">
+        {/* Slider */}
+        <div
+          ref={sliderRef}
+          className={`tm-slider mt-12 overflow-hidden ${sliderVisible ? "tm-visible" : ""}`}
+          style={{ transitionDelay: "0.2s" }}
+        >
           <div
             ref={trackRef}
             className={`flex gap-6 will-change-transform ${ready ? "" : "opacity-0"}`}
@@ -97,11 +130,9 @@ const TestimonialSlider = () => {
                 key={`${item.name}-${index}`}
                 className="min-w-[320px] max-w-[320px] flex-shrink-0 rounded-[28px] border border-neutral-200 bg-[#f7f7f7] p-7 shadow-sm sm:min-w-[380px] sm:max-w-[380px]"
               >
-                <div className="flex items-center gap-1 text-black">
-                  {"★★★★★".split("").map((star, i) => (
-                    <span key={i} className="text-black">
-                      ★
-                    </span>
+                <div className="flex items-center gap-1">
+                  {"★★★★★".split("").map((_, i) => (
+                    <span key={i} className="text-black">★</span>
                   ))}
                 </div>
 

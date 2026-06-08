@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const reasons = [
   {
@@ -24,12 +24,49 @@ const reasons = [
 ];
 
 const WhyChooseUs = () => {
+  const { ref: imgRef, visible: imgVisible } = useScrollReveal();
+  const { ref: contentRef, visible: contentVisible } = useScrollReveal();
+
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+      <style>{`
+        .wcu-left {
+          opacity: 0;
+          transform: translateX(-36px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .wcu-left.wcu-visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        .wcu-right {
+          opacity: 0;
+          transform: translateX(36px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .wcu-right.wcu-visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        .wcu-item {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .wcu-item.wcu-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[520px_1fr] lg:gap-20">
-          {/* ── Left: Image ── */}
-          <div className="relative">
+
+          {/* Left: Image */}
+          <div
+            ref={imgRef}
+            className={`wcu-left relative ${imgVisible ? "wcu-visible" : ""}`}
+          >
             <div className="overflow-hidden rounded-[32px] border border-[#e5e7eb]">
               <img
                 src="/images/why-choose-us.jpg"
@@ -39,8 +76,12 @@ const WhyChooseUs = () => {
             </div>
           </div>
 
-          {/* ── Right: Content ── */}
-          <div>
+          {/* Right: Content */}
+          <div
+            ref={contentRef}
+            className={`wcu-right ${contentVisible ? "wcu-visible" : ""}`}
+            style={{ transitionDelay: "0.1s" }}
+          >
             {/* Label */}
             <div className="mb-5 flex items-center gap-2">
               <div className="h-4 w-1 rounded-full bg-[#16a34a]" />
@@ -54,7 +95,7 @@ const WhyChooseUs = () => {
               When Your Business{" "}
               <span className="rounded-lg px-3 py-1 text-[#16a34a]">Needs</span>{" "}
               It Most —{" "}
-              <span className="rounded-lg  px-3 py-1 text-[#16a34a]">
+              <span className="rounded-lg px-3 py-1 text-[#16a34a]">
                 Expert Help
               </span>
             </h2>
@@ -68,15 +109,17 @@ const WhyChooseUs = () => {
               compliance. No chasing. No confusion. Just results.
             </p>
 
-            {/* ── 4 Reasons Grid ── */}
+            {/* 4 Reasons Grid */}
             <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
-              {reasons.map((item) => (
-                <div key={item.title} className="flex items-start gap-4">
-                  {/* Icon */}
+              {reasons.map((item, i) => (
+                <div
+                  key={item.title}
+                  className={`wcu-item flex items-start gap-4 ${contentVisible ? "wcu-visible" : ""}`}
+                  style={{ transitionDelay: `${0.2 + i * 0.1}s` }}
+                >
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#bbf7d0] bg-[#f0fdf4]">
                     <i className={`${item.icon} text-[22px] text-[#16a34a]`} />
                   </div>
-                  {/* Text */}
                   <div>
                     <h3 className="text-[17px] font-semibold text-[#111]">
                       {item.title}
